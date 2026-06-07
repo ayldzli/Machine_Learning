@@ -4,7 +4,7 @@ import numpy as np
 from typing import List, Dict, Any
 
 class BaseEvaluator(ABC):
-    """Template Method Pattern: Manages the common evaluation workflow."""
+    """Manages the common evaluation workflow."""
     
     def evaluate_pipeline(self, model: Any, X: np.ndarray, y: np.ndarray) -> Dict[str, float]:
         """Runs predictions and calculates metrics."""
@@ -16,11 +16,10 @@ class BaseEvaluator(ABC):
         """Must be implemented by subclasses to calculate task-specific scores."""
         pass
 
-    # FIXED: Reusable, zero-duplication parallel cross-validation engine
     def parallel_cross_validation(self, model_factory: Any, X: np.ndarray, y: np.ndarray, n_folds: int = 3) -> List[Dict[str, float]]:
         """
         Splits data and trains models concurrently using threads.
-        Works universally for BOTH classification and regression models.
+        Works universally for both classification and regression models.
         """
         results = []
         fold_size = len(X) // n_folds
