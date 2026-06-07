@@ -7,26 +7,27 @@ The core objective of this library is to demonstrate clean software engineering 
 ```text
 Machine_Learning/
 │
-├── pyproject.toml              # Modern package build configuration
-├── README.md                   # Documentation frontpage
+├── pyproject.toml              
+├── README.md
+├── LICENSE                   
 │
 ├── src/
-│   └── my_ml_library/         # Main library package
-│       ├── __init__.py         # Public API exposure mappings
+│   └── my_ml_library/         
+│       ├── __init__.py         
 │       ├── data_loader.py      # Facade and Factory ingestion engines
 │       ├── processing.py       # Strategy-based data preprocessing
-│       ├── models.py           # Polymorphic classification & regression models
+│       ├── models.py           # Classification & regression models
 │       └── evaluation.py       # Template-based concurrent K-Fold evaluator
 │
-├── examples/                   # Executable entry points for evaluation
+├── examples/                   
 │   ├── data/
-│   │   └── classification_data.csv # Tabular dataset for classification testing
-│   ├── demo_classification.py  # End-to-end classification pipeline
-│   └── demo_regression.py      # End-to-end regression evaluation
+│   │   └── classification_data.csv 
+│   ├── classification_example.py  
+│   └── regression_example.py      
 │
-└── tests/                      # Core automated test suite
+└── tests/                      
     ├── data/
-    │   └── test_clf_temp.csv   # Temporary mockup dataset for classification testing
+    │   └── test_clf_temp.csv   
     ├── test_classification.py
     └── test_regression.py
 ```
