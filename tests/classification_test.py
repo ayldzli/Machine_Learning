@@ -11,11 +11,11 @@ from ML_Library import (
 
 def test_data_loader_factory_and_strategy():
     """Factory ve Strategy desenlerinin entegrasyonunu test eder."""
-    # Sahte bir CSV verisi simüle edelim
+    # CSV verisi simüle et
     df_raw = pd.DataFrame({'Feature1': [2.0, np.nan, 4.0]})
     df_raw.to_csv("tests/data/test_clf_temp.csv", index=False)
     
-    # Factory test
+    # DataManager Test
     df = MLDataManager.load("tests/data/test_clf_temp.csv")
     assert isinstance(df, pd.DataFrame)
     
