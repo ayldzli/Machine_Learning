@@ -1,4 +1,4 @@
-# 🤖 Custom Machine Learning Library from Scratch
+# 🤖 Simple Machine Learning Library
 
 This repository contains a modular, production-grade **Machine Learning and Data Science Library** built entirely from scratch using plain Python and NumPy. It was developed as a term project for the **Advanced Programming (YZM1022)** course at Yıldız Technical University (YTÜ).
 
@@ -6,7 +6,7 @@ The core objective of this library is to demonstrate clean software engineering 
 
 ---
 
-## 🏗️ Architectural Highlights & Design Patterns
+## Architectural Highlights & Design Patterns
 
 The entire library is strictly designed around **SOLID Principles** to ensure loose coupling, high testability, and clean separation of concerns:
 
@@ -30,10 +30,34 @@ git clone [https://github.com/ayldzli/Machine_Learning.git](https://github.com/a
 cd Machine_Learning
 ```
 
-### 2.Install the Library in Editable Mode
+### 2. Install the Library in Editable Mode
 
 Install the package locally along with all its required dependencies (numpy, pandas, pytest) using the developer development flag (-e):
 ```bash
 pip install -e .
+```
+
+## Examples
+
+### 1. Classification Pipeline
+Loads tabular classification data, automatically cleans all missing fields, handles feature transformations via closures, and triggers parallel evaluation threads to evaluate the recursive Decision Tree model:
+
+```bash
+python3 examples/classification_example.py
+```
+
+### 2. Regression Pipeline
+Loads numerical datasets, fits a multivariate linear regression equation using raw matrix gradient descent optimization, and calculates performance error metrics (MAE, MSE, RMSE) concurrently:
+
+```bash
+python3 examples/regression_example.py
+```
+
+## Tests
+
+To run the automated tests, ensure pytest is installed and run the command from the root directory:
+
+```bash
+pytest -v
 ```
 
