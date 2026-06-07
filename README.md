@@ -20,7 +20,7 @@ The entire library is strictly designed around **SOLID Principles** to ensure lo
 
 ---
 
-## ⚙️ Installation Guide
+## Installation Guide
 
 The library utilizes modern Python packaging standards specified in `pyproject.toml`. Follow these steps to install the package cleanly on your local machine:
 
@@ -28,3 +28,12 @@ The library utilizes modern Python packaging standards specified in `pyproject.t
 ```bash
 git clone [https://github.com/ayldzli/Machine_Learning.git](https://github.com/ayldzli/Machine_Learning.git)
 cd Machine_Learning
+```
+
+### 2.Install the Library in Editable Mode
+
+Install the package locally along with all its required dependencies (numpy, pandas, pytest) using the developer development flag (-e):
+```bash
+pip install -e .
+```
+
