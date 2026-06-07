@@ -16,8 +16,7 @@ def test_data_loader_factory_and_strategy():
     df_raw.to_csv("tests/data/test_clf_temp.csv", index=False)
     
     # Factory test
-    loader = DataLoaderFactory.get_loader("csv")
-    df = loader.load_data("tests/data/test_clf_temp.csv")
+    df = MLDataManager.load("tests/data/test_clf_temp.csv")
     assert isinstance(df, pd.DataFrame)
     
     # Strategy (MeanImputer) test
