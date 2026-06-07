@@ -1,10 +1,10 @@
-from .data_loader import MLDataManager  # <- Expose the static class
+from .data_loader import MLDataManager 
 from .processing import DataProcessor, MeanImputer, MedianImputer
 from .models import SimpleDecisionTree, LinearRegressionFromScratch
 from .evaluation import ClassificationEvaluator, RegressionEvaluator
 
 __all__ = [
-    "MLDataManager",  # <- Expose it here
+    "MLDataManager",  
     "DataProcessor",
     "MeanImputer",
     "MedianImputer",
