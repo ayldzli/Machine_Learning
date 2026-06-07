@@ -55,7 +55,7 @@ The library utilizes modern Python packaging standards specified in `pyproject.t
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/ayldzli/Machine_Learning.git](https://github.com/ayldzli/Machine_Learning.git)
+git clone https://github.com/ayldzli/Machine_Learning.git
 cd Machine_Learning
 ```
 
@@ -89,4 +89,3 @@ To run the automated tests, ensure pytest is installed and run the command from 
 ```bash
 pytest -v
 ```
-
