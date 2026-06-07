@@ -1,6 +1,6 @@
 # 🤖 Custom Machine Learning Library from Scratch
 
-This repository contains a modular, production-grade **Machine Learning and Data Science Library** built entirely from scratch using plain Python and NumPy. It was developed as a term project for the **Advanced Programming (YZM1022)** course.
+This repository contains a modular, production-grade **Machine Learning and Data Science Library** built entirely from scratch using plain Python and NumPy. It was developed as a term project for the **Advanced Programming (YZM1022)** course at Yıldız Technical University (YTÜ).
 
 The core objective of this library is to demonstrate clean software engineering practices by implementing end-to-end data pipelines, recursive model fitting, and multi-threaded cross-validation without relying on high-level frameworks like `scikit-learn`.
 
@@ -20,26 +20,11 @@ The entire library is strictly designed around **SOLID Principles** to ensure lo
 
 ---
 
-## 📁 Repository Directory Structure
+## ⚙️ Installation Guide
 
-```text
-Machine_Learning/
-│
-├── pyproject.toml              # Modern package build configuration
-├── README.md                   # Documentation frontpage
-│
-├── src/
-│   └── my_ml_library/         # Main library package
-│       ├── __init__.py         # Public API exposure mappings
-│       ├── data_loader.py      # Facade and Factory ingestion engines
-│       ├── processing.py       # Strategy-based data preprocessing
-│       ├── models.py           # Polymorphic classification & regression models
-│       └── evaluation.py       # Template-based concurrent K-Fold evaluator
-│
-├── examples/                   # Executable entry points for evaluation
-│   ├── demo_classification.py  # End-to-end classification pipeline
-│   └── demo_regression.py      # End-to-end regression evaluation
-│
-└── tests/                      # Core automated test suite
-    ├── test_classification.py
-    └── test_regression.py
+The library utilizes modern Python packaging standards specified in `pyproject.toml`. Follow these steps to install the package cleanly on your local machine:
+
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/ayldzli/Machine_Learning.git](https://github.com/ayldzli/Machine_Learning.git)
+cd Machine_Learning
