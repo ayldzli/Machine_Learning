@@ -3,8 +3,7 @@ import numpy as np
 
 class BaseModel(ABC):
     """
-    POLYMORPHISM INTERFACE: Establishes a strict architectural contract 
-    for all machine learning models in our library.
+    Base model for all machine learning models in library.
     """
     
     @abstractmethod
@@ -29,14 +28,14 @@ class DecisionNode:
 
 
 class SimpleDecisionTree(BaseModel):
-    """Classification Model: Fulfills the RECURSION requirement."""
+    """Recursive Classification Model"""
     def __init__(self, max_depth=3, min_samples_split=2):
         self.max_depth = max_depth
         self.min_samples_split = min_samples_split
         self.root = None
 
     def fit(self, X: np.ndarray, y: np.ndarray) -> None:
-        """Implements the contract: Kicks off recursive tree training."""
+        """Recursive tree training."""
         self.root = self._build_tree(X, y, depth=0)
 
     def _build_tree(self, X: np.ndarray, y: np.ndarray, depth: int) -> DecisionNode:
@@ -57,7 +56,7 @@ class SimpleDecisionTree(BaseModel):
         return DecisionNode(feature=feature_idx, threshold=threshold, left=left_child, right=right_child)
 
     def predict(self, X: np.ndarray) -> np.ndarray:
-        """Implements the contract: Runs recursive row traversal."""
+        """Recursive row traversal."""
         return np.array([self._predict_row(self.root, row) for row in X])
 
     def _predict_row(self, node: DecisionNode, row: np.ndarray) -> float:
@@ -69,7 +68,7 @@ class SimpleDecisionTree(BaseModel):
 
 
 class LinearRegressionFromScratch(BaseModel):
-    """Regression Model: Fulfills mathematical model-fitting via Gradient Descent."""
+    """Linear Regression Model."""
     def __init__(self, learning_rate=0.01, epochs=100):
         self.lr = learning_rate
         self.epochs = epochs
@@ -77,7 +76,7 @@ class LinearRegressionFromScratch(BaseModel):
         self.bias = None
 
     def fit(self, X: np.ndarray, y: np.ndarray) -> None:
-        """Implements the contract: Iteratively solves linear coefficients."""
+        """Solves linear coefficients."""
         n_samples, n_features = X.shape
         self.weights = np.zeros(n_features)
         self.bias = 0.0
@@ -92,5 +91,5 @@ class LinearRegressionFromScratch(BaseModel):
             self.bias -= self.lr * db
 
     def predict(self, X: np.ndarray) -> np.ndarray:
-        """Implements the contract: Generates matrix dot-product predictions."""
+        """Generates matrix dot-product predictions."""
         return np.dot(X, self.weights) + self.bias
