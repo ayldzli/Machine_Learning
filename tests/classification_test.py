@@ -2,7 +2,7 @@ import pytest
 import numpy as np
 import pandas as pd
 from ML_Library import (
-    DataLoaderFactory, 
+    MLDataManager, 
     DataProcessor, 
     MeanImputer, 
     SimpleDecisionTree, 
