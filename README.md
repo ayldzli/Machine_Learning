@@ -31,6 +31,7 @@ Machine_Learning/
     │   └── test_clf_temp.csv   # Temporary mockup dataset for classification testing
     ├── test_classification.py
     └── test_regression.py
+```
 
 ## Architectural Highlights & Design Patterns
 
@@ -39,12 +40,14 @@ The entire library is strictly designed around **SOLID Principles** to ensure lo
 * **Polymorphic Model Interface (`BaseModel`):** All models inherit from an abstract structural contract, enforcing the implementation of `.fit()` and `.predict()`.
     * *Classification:* Features a custom **Recursive (Özyinelemeli)** `SimpleDecisionTree` built from scratch.
     * *Regression:* Features a vector-optimized `LinearRegressionFromScratch` solved via Gradient Descent loops.
+      
 * **The Facade Pattern (`MLDataManager`):** Hides the complexity of data ingestion. Users do not need to specify file extensions or call factories manually. A single static call (`MLDataManager.load("file.csv")`) automatically parses the extension and maps it to the appropriate polymorphic loader (`CSVDataLoader` or `JSONDataLoader`).
+  
 * **The Strategy Pattern (`DataProcessor`):** Isolates data imputation algorithms. Users can pass a `MeanImputer` or `MedianImputer` strategy. The processor dynamically scans the entire DataFrame, automatically locating and cleaning missing items across all numerical columns in one operation.
+  
 * **Template Method Pattern with Concurrency (`BaseEvaluator`):** To eliminate duplication and satisfy the **DRY (Don't Repeat Yourself)** principle, the K-Fold data splitting and threading engine is abstracted into the parent class. It leverages a `ThreadPoolExecutor` to train and grade independent validation folds **concurrently (asynchronously)** across multiple background threads.
+  
 * **Functional Programming (Closure):** Uses higher-order functions to dynamically generate stateful custom data transformers during the feature engineering stage.
-
----
 
 ## Installation Guide
 
