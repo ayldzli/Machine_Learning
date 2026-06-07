@@ -18,31 +18,26 @@ def main():
     })
     df_raw.to_csv("examples/data/classification_data.csv", index=False)
 
-    # 2. Factory Pattern ile yükleme
     df = MLDataManager.load("examples/data/classification_data.csv")
 
-    # 3. Strategy Pattern ile eksik veri doldurma
-    # NEW SMART WAY
     processor = DataProcessor(strategy=MeanImputer())
 
-    # Cleans all missing values across the entire dataset automatically!
     df_clean = processor.fill_missing(df)
 
-    # 4. Functional Programming (Closure)
     double_transformer = processor.create_custom_transformer(lambda x: x * 2)
     df_clean["Feature1_Doubled"] = double_transformer(df_clean["Feature1"])
 
     print("\n[DataProcessor] Hazırlanan Sınıflandırma Verisi:")
     print(df_clean)
 
-    # 5. Veriyi NumPy matrisine çevirme
+    # Veriyi NumPy matrisine çevirme
     X = df_clean[["Feature1", "Feature1_Doubled"]].to_numpy()
     y = df_clean["Label"].to_numpy()
     
     # Model fabrikası (Thread'ler için)
     tree_factory = lambda: SimpleDecisionTree(max_depth=3)
 
-    # 6. Concurrency ile Paralel Cross-Validation ve Sınıflandırma Metrikleri
+    # Concurrency ile Paralel Cross-Validation ve Sınıflandırma Metrikleri
     evaluator = ClassificationEvaluator()
     print("\n--- Paralel Cross-Validation Başlatılıyor ---")
     results = evaluator.parallel_cross_validation(tree_factory, X, y, n_folds=3)
