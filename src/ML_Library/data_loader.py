@@ -25,12 +25,11 @@ class JSONDataLoader(BaseDataLoader):
 
 class DataLoaderFactory:
     """
-    SMART FACTORY PATTERN: Automatically detects the file extension 
+    Automatically detects the file extension 
     and instantiates the correct loader polymorphically.
     """
     @staticmethod
     def get_loader(file_path: str) -> BaseDataLoader:
-        # Extract the extension and convert to lowercase (e.g., '.csv')
         _, extension = os.path.splitext(file_path)
         extension = extension.lower()
 
@@ -43,7 +42,7 @@ class DataLoaderFactory:
 
 class MLDataManager:
     """
-    FACADE PATTERN (Pure OOP): A unified, static utility class 
+    Unified utility class 
     that serves as the single entry point for all data operations.
     """
     
