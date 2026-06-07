@@ -26,7 +26,7 @@ class JSONDataLoader(BaseDataLoader):
 class DataLoaderFactory:
     """
     Automatically detects the file extension 
-    and instantiates the correct loader polymorphically.
+    and instantiates the correct loader.
     """
     @staticmethod
     def get_loader(file_path: str) -> BaseDataLoader:
