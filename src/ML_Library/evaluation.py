@@ -54,7 +54,7 @@ class BaseEvaluator(ABC):
         """Worker function run by background threads."""
         # Dynamically grabs the class name (ClassificationEvaluator or RegressionEvaluator) for clean logs
         evaluator_type = self.__class__.__name__
-        print(f"[Thread] {evaluator_type} -> Fold {fold_idx} eğitimi başladı...")
+        print(f"[Thread] {evaluator_type} -> Fold {fold_idx} training started...")
         
         model.fit(X_train, y_train)
         return self.evaluate_pipeline(model, X_val, y_val)
