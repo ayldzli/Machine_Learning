@@ -4,7 +4,6 @@ from ML_Library import RegressionEvaluator
 def main():
     print("=== SENARYO 2: REGRESYON (REGRESSION) METRİK DEMOSU ===\n")
 
-    # 1. Gerçek Değerler ve Modelin Tahminleri (Örn: Ev Fiyatları - Bin TL cinsinden)
     # Gerçek fiyatlar: 100k, 150k, 200k, 250k, 300k
     y_true = np.array([100.0, 150.0, 200.0, 250.0, 300.0])
     
@@ -15,14 +14,11 @@ def main():
     print(f"  Gerçek Ev Fiyatları (y_true) : {y_true}")
     print(f"  Tahmin Edilen Fiyatlar (y_pred): {y_pred}\n")
 
-    # 2. Regresyon Değerlendiricisini Başlatma (Template Method alt yapısı)
     reg_evaluator = RegressionEvaluator()
 
-    # 3. Metrikleri Hesaplama
     print("--- Regresyon Metrik Motoru Çalıştırılıyor ---")
     metrics = reg_evaluator.calculate_metrics(y_true, y_pred)
 
-    # 4. Sonuçları Ekrana Basma
     print("\n[RegressionEvaluator] Hesaplanan Hata Payları:")
     print(f"  MAE  (Mean Absolute Error)      : {metrics['mae']:.4f}")
     print(f"  --> Açıklama: Modelimiz tahminlerinde ortalama {metrics['mae']:.2f} birim sapma yapıyor.")
